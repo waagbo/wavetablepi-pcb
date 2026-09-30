@@ -1,6 +1,6 @@
 # WavetablePi DigiKey BOM (audio-grade parts)
 
-Bill of materials for the WavetablePi rev0.3 PCB. Parts in or near the audio path were chosen for audio quality. DigiKey part numbers, prices and stock were checked on digikey.com on 2026-09-29.
+Bill of materials for the WavetablePi rev0.3 PCB. Parts in or near the audio path were chosen for audio quality. DigiKey part numbers, prices and stock were checked on digikey.com on 2026-09-29 (connectors on 2026-09-30).
 
 | File | Contents |
 |---|---|
@@ -28,17 +28,17 @@ The order files only contain parts DigiKey sells. You also need:
 | R1 | 10K 1% 50ppm Vishay Dale CMF55 metal film (MIDI IN level divider) | `CMF10.0KHFCT-ND` | 1 | 10 | $0.61 | $3.94 |
 | R2 | 22.1K 1% 50ppm Vishay Dale CMF55 metal film (MIDI IN level divider) | `CMF22.1KHFCT-ND` | 1 | 10 | $0.78 | $5.07 |
 | R3, R4 | 1K 0.1% 25ppm Vishay Dale CMF55 metal film (PWM low-pass filter) | `CMF1.0KHBCT-ND` | 2 | 20 | $4.96 | $32.98 |
-| Audio_Select1 | Pin header 2x3 2.54mm vertical, 10uin gold (audio source select) | `612-TSW-103-07-G-D-ND` | 1 | 10 | $0.56 | $4.74 |
-| Audio_Select1 jumpers | Jumper shunt 2.54mm, black, open top, 10uin gold | `SAM8858-ND` | 2 | 20 | $0.62 | $6.20 |
+| Audio_Select1 | Pin header 2x3 2.54mm vertical, gold flash, breakaway (audio source select) | `35-PRPC003DAAN-RC-ND` | 1 | 10 | $0.12 | $0.99 |
+| Audio_Select1 jumpers | Jumper socket 2.54mm, black, open top, gold, 6.00mm | `952-2881-ND` | 2 | 20 | $0.32 | $2.68 |
 | RPi1 | Raspberry Pi Zero 2 W (without header) | `2648-SC1176-ND` | 1 | 10 | $15.00 | $150.00 |
-| RPi1 header | Pin header 2x20 2.54mm vertical (mounts Pi Zero flush to the board) | `612-TSW-120-07-L-D-ND` | 1 | 10 | $2.60 | $26.00 |
-| Wavetable1 | Socket 2x13 2.54mm vertical, 20uin gold, 8.51mm (wavetable connector) | `612-SSW-113-01-G-D-ND` | 1 | 10 | $3.97 | $33.72 |
+| RPi1 header | Pin header 2x20 2.54mm vertical, breakaway (mounts Pi Zero flush to the board) | `35-PRPC020DAAN-RC-ND` | 1 | 10 | $0.95 | $8.06 |
+| Wavetable1 | Socket 2x13 2.54mm vertical, gold, 8.50mm (wavetable connector) | `732-61302621821-ND` | 1 | 10 | $1.00 | $9.32 |
 | DAC1 | PCM5102A I2S DAC module, GY-PCM5102 (approx. 32 x 17 mm) | not at DigiKey | 1 | 10 | - | - |
 | LCD1 | 0.91in OLED SSD1306 I2C 128x32 module, 4-pin GND/VCC/SCL/SDA (optional) | not at DigiKey | 1 | 10 | - | - |
-| | **Total (DigiKey parts)** | | | | **$31.46** | **$277.11** |
-| | Total without the Raspberry Pi | | | | $16.46 | $127.11 |
+| | **Total (DigiKey parts)** | | | | **$26.10** | **$227.50** |
+| | Total without the Raspberry Pi | | | | $11.10 | $77.50 |
 
-Prices are DigiKey list prices in USD on 2026-09-29, at the quantity ordered, and will change. DigiKey has no drop-in equivalent for DAC1 or LCD1: its Adafruit PCM5102 and 0.91" OLED boards use different footprints.
+Prices are DigiKey list prices in USD at the quantity ordered, as checked, and will change. DigiKey has no drop-in equivalent for DAC1 or LCD1: its Adafruit PCM5102 and 0.91" OLED boards use different footprints.
 
 ## Why these parts
 
@@ -46,13 +46,24 @@ In the audio path:
 
 - **C1, C2 (10 µF output coupling)** are in series with the left and right audio going to the sound card. The usual audio-grade choices, film or a bipolar audio electrolytic such as Nichicon Muse ES, do not fit: the two capacitors sit side by side only 2.67 mm apart, on the side facing the sound card. WIMA's 5 mm-pitch MKS2 film capacitors are already 5 mm thick at 1 µF and stop at 4.7 µF. The 16 V and 25 V 10 µF Muse ES parts (5 mm diameter) are obsolete at DigiKey, and the 50 V one is 8 x 13 mm. The BOM uses a TDK FG28 10 µF 25 V ceramic (4.0 x 2.5 x 5.5 mm), which fits. Assuming a wavetable input impedance of 10 kΩ or more, the -3 dB point is about 1.6 Hz. At 50 Hz only about 3 % of the signal voltage appears across the capacitor, and less at higher frequencies, so the ceramic's voltage coefficient adds very little distortion. A film or bipolar-electrolytic coupling capacitor would need a larger footprint at C1/C2 in a future PCB revision.
 - **C3, C4 and R3, R4 (PWM low-pass filter, about 1.6 kHz)**: WIMA MKS2 polyester film capacitors instead of ceramics, and 0.1 % Vishay Dale CMF55 metal film resistors, so both channels' filters match. 100 nF C0G ceramics were considered, but at 3.2-3.5 mm thick they are too wide for the gap between the board edge and the Pi.
-- **Wavetable1**: Samtec SSW socket with 20 µin gold contacts. Its 2.64 mm tails stay clear of the OLED, which sits directly above them on the other side of the board.
-- **Audio_Select1 and jumpers**: Samtec TSW header and SNT shunts, both with 10 µin gold, so the audio passes through gold-on-gold contacts. The shunts have no handle to keep them short, because the header sits on the side facing the sound card.
+- **Wavetable1**: Würth WR-PHD 61302621821 socket with gold contacts, 8.5 mm tall. Its 3.1 mm tails stay clear of the OLED, which sits directly above them on the other side of the board. Würth rates it for 25 mating cycles, plenty for a board that is plugged in a few times. If you will move it between sound cards often, the Samtec SSW-113-01-G-D with 20 µin gold is the premium alternative.
+- **Audio_Select1 and jumpers**: Sullins PRPC gold-flash header and Harwin M7582-05 gold jumpers, so the audio passes through gold-on-gold contacts. Harwin's own M20 2x3 header is tin-plated, which is why the header is from Sullins. The jumpers are open-top with no handle and 6.00 mm tall, which keeps them short on the side facing the sound card.
 
 Outside the audio path:
 
 - **R1, R2**: Vishay Dale CMF55 1 % metal film. They divide the 5 V MIDI signal from the sound card down to about 3.44 V for the Pi's UART.
-- **RPi1 header**: Samtec TSW-120-07-L-D. It is soldered at both ends with no mating contact, so plating does not matter here. The all-tin version had only 4 in stock; the all-gold TSW-120-07-G-D (`612-TSW-120-07-G-D-ND`) also works.
+- **RPi1 header**: Sullins PRPC020DAAN-RC. It is soldered at both ends with no mating contact, so plating does not matter here. It is a breakaway header, so it snaps into the 2x3 sections the main README recommends.
+
+## Connector alternates
+
+The connectors were Samtec parts in the first version of this BOM. The parts above are cheaper, well stocked and from established makers; switching saved $5.36 per board, or $49.61 for 10 boards. The trade-off is thinner gold than Samtec's 10-20 µin: the Sullins parts are gold flash, and Würth does not state a thickness but rates its socket for 25 mating cycles. That is fine for contacts that are only mated a few times.
+
+| Reference | In the BOM | Alternates |
+|---|---|---|
+| Wavetable1 | Würth 61302621821 (`732-61302621821-ND`), gold, $0.93 at 10 | Sullins PPPC132LFBN-RC (`S7116-ND`), gold flash, $1.34 at 10, larger stock; Samtec SSW-113-01-G-D (`612-SSW-113-01-G-D-ND`), 20 µin gold, $3.37 at 10 |
+| Audio_Select1 | Sullins PRPC003DAAN-RC (`35-PRPC003DAAN-RC-ND`), gold flash, $0.10 at 10 | Samtec TSW-103-07-G-D (`612-TSW-103-07-G-D-ND`), 10 µin gold, $0.47 at 10 |
+| Audio_Select1 jumpers | Harwin M7582-05, black (`952-2881-ND`), $0.13 at 10 | Harwin M7583-05, blue (`952-2882-ND`); Harwin M7581-05, red (`952-2169-ND`); same price |
+| RPi1 header | Sullins PRPC020DAAN-RC (`35-PRPC020DAAN-RC-ND`), $0.81 at 10 | Harwin M20-9982046 (`952-3299-ND`), tin, $1.14 at 10; Samtec TSW-120-07-L-D (`612-TSW-120-07-L-D-ND`), $2.60 at 10 |
 
 ## Notes
 
