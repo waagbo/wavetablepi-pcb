@@ -6,5 +6,6 @@ R2,22.1K 1% 50ppm Vishay Dale CMF55 metal film (MIDI IN level divider),CMF22.1KH
 "R3, R4",1K 1% 50ppm Vishay Dale CMF55 metal film (PWM low-pass filter),CMF1.00KHFCT-ND,20,Vishay Dale,CMF551K0000FHEB,WavetablePi R3 R4
 Audio_Select1,"Pin header 2x3 2.54mm vertical, gold flash, breakaway (audio source select)",35-PRPC003DAAN-RC-ND,10,Sullins,PRPC003DAAN-RC,WavetablePi Audio_Select1
 Audio_Select1 jumpers,"Jumper socket 2.54mm, black, open top, gold, 6.00mm",952-2881-ND,20,Harwin,M7582-05,WavetablePi Audio_Select1 jumpers
+RPi1,Raspberry Pi Zero 2 W (without header),2648-SC1176-ND,10,Raspberry Pi,SC1176,WavetablePi RPi1
 RPi1 header,"Pin header 2x20 2.54mm vertical, breakaway (mounts Pi Zero flush to the board)",35-PRPC020DAAN-RC-ND,10,Sullins,PRPC020DAAN-RC,WavetablePi RPi1 header
 Wavetable1,"Socket 2x13 2.54mm vertical, gold, 8.50mm (wavetable connector)",732-61302621821-ND,10,Wurth Elektronik,61302621821,WavetablePi Wavetable1

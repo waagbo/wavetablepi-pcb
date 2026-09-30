@@ -12,9 +12,10 @@ Bill of materials for the WavetablePi rev0.3 PCB. Parts in or near the audio pat
 
 Upload an order file to the [DigiKey BOM Manager](https://www.digikey.com/BOM), map `DigiKey Part Number`, `Quantity` and `Customer Reference`, then add the list to your cart. DigiKey prints the customer reference (for example `WavetablePi R3 R4`) on each bag, so the parts arrive labelled with their board positions.
 
-The order files contain everything except these, which you buy separately:
+The Raspberry Pi Zero 2 W (RPi1) is in the order files, but DigiKey was out of stock on 2026-09-30. If it still is, remove that line and buy the Pi from any approved reseller. It must be the Zero 2 W (the original Zero is too slow) and without a pre-soldered header, because the Pi is mounted flush. DigiKey lists it as SC1176; older SC0510 links lead to the same page.
 
-- **RPi1**: Raspberry Pi Zero 2 W without a pre-soldered header, because the Pi is mounted flush. The original Zero is too slow. DigiKey lists it as SC1176 (`2648-SC1176-ND`; older SC0510 links lead to the same page), but it was out of stock on 2026-09-30, and any approved reseller works.
+The order files only contain parts DigiKey sells. You also need:
+
 - **DAC1**: GY-PCM5102 (PCM5102A) I2S DAC module, about 32 x 17 mm, from AliExpress, Amazon or eBay. Check that its form factor and pinout match the PCB, and set the solder bridges as described in the [mt32-pi wiki](https://github.com/dwhinham/mt32-pi/wiki/GY-PCM5102-DAC-module). Use the pin headers supplied with the module.
 - **LCD1** (optional): 0.91" SSD1306 I2C 128x32 OLED module with a 4-pin GND/VCC/SCL/SDA header.
 - The PCB (see the gerber link in the [main README](../README.md#i-want-to-build-one-myself)).
@@ -31,14 +32,15 @@ The order files contain everything except these, which you buy separately:
 | R3, R4 | 1K 1% 50ppm Vishay Dale CMF55 metal film (PWM low-pass filter) | `CMF1.00KHFCT-ND` | 2 | 20 | $1.24 | $7.96 |
 | Audio_Select1 | Pin header 2x3 2.54mm vertical, gold flash, breakaway (audio source select) | `35-PRPC003DAAN-RC-ND` | 1 | 10 | $0.12 | $0.99 |
 | Audio_Select1 jumpers | Jumper socket 2.54mm, black, open top, gold, 6.00mm | `952-2881-ND` | 2 | 20 | $0.32 | $2.68 |
-| RPi1 | Raspberry Pi Zero 2 W (without header) | `2648-SC1176-ND` (buy separately) | 1 | 10 | - | - |
+| RPi1 | Raspberry Pi Zero 2 W (without header) | `2648-SC1176-ND` | 1 | 10 | $15.00 | $150.00 |
 | RPi1 header | Pin header 2x20 2.54mm vertical, breakaway (mounts Pi Zero flush to the board) | `35-PRPC020DAAN-RC-ND` | 1 | 10 | $0.95 | $8.06 |
 | Wavetable1 | Socket 2x13 2.54mm vertical, gold, 8.50mm (wavetable connector) | `732-61302621821-ND` | 1 | 10 | $1.00 | $9.32 |
 | DAC1 | PCM5102A I2S DAC module, GY-PCM5102 (approx. 32 x 17 mm) | not at DigiKey | 1 | 10 | - | - |
 | LCD1 | 0.91in OLED SSD1306 I2C 128x32 module, 4-pin GND/VCC/SCL/SDA (optional) | not at DigiKey | 1 | 10 | - | - |
-| | **Total (DigiKey order)** | | | | **$7.38** | **$52.48** |
+| | **Total (DigiKey order)** | | | | **$22.38** | **$202.48** |
+| | Total without the Raspberry Pi | | | | $7.38 | $52.48 |
 
-Prices are DigiKey list prices in USD at the quantity ordered, as checked, and will change. The totals cover the DigiKey order only, so they leave out the Pi, DAC1 and LCD1. DigiKey has no drop-in equivalent for DAC1 or LCD1: its Adafruit PCM5102 and 0.91" OLED boards use different footprints.
+Prices are DigiKey list prices in USD at the quantity ordered, as checked, and will change. The totals cover the DigiKey order, so DAC1, LCD1, the PCB and the microSD card come on top. DigiKey has no drop-in equivalent for DAC1 or LCD1: its Adafruit PCM5102 and 0.91" OLED boards use different footprints.
 
 ## Why these parts
 
@@ -61,7 +63,7 @@ The connectors were Samtec parts in the first version of this BOM. The parts abo
 | Reference | In the BOM | Alternates |
 |---|---|---|
 | Wavetable1 | Würth 61302621821 (`732-61302621821-ND`), gold, $0.93 at 10 | Sullins PPPC132LFBN-RC (`S7116-ND`), gold flash, $1.34 at 10, larger stock; Samtec SSW-113-01-G-D (`612-SSW-113-01-G-D-ND`), 20 µin gold, $3.37 at 10 |
-| Audio_Select1 | Sullins PRPC003DAAN-RC (`35-PRPC003DAAN-RC-ND`), gold flash, $0.10 at 10 | Harwin M20-9980345 (`952-2120-ND`), gold, $0.25 at 10; Samtec TSW-103-07-G-D (`612-TSW-103-07-G-D-ND`), 10 µin gold, $0.47 at 10 |
+| Audio_Select1 | Sullins PRPC003DAAN-RC (`35-PRPC003DAAN-RC-ND`), gold flash, $0.10 at 10 | Harwin M20-9980345 (`952-2120-ND`), gold, $0.25 at 10; Würth 61300621121 (`732-5295-ND`), gold, $0.46 at 10; Samtec TSW-103-07-G-D (`612-TSW-103-07-G-D-ND`), 10 µin gold, $0.47 at 10 |
 | Audio_Select1 jumpers | Harwin M7582-05, black (`952-2881-ND`), $0.13 at 10 | Harwin M7583-05, blue (`952-2882-ND`); Harwin M7581-05, red (`952-2169-ND`); same price |
 | RPi1 header | Sullins PRPC020DAAN-RC (`35-PRPC020DAAN-RC-ND`), $0.81 at 10 | Harwin M20-9982046 (`952-3299-ND`), tin, $1.14 at 10; Harwin M20-9982045 (`952-3298-ND`), gold, $1.36 at 10; Samtec TSW-120-07-L-D (`612-TSW-120-07-L-D-ND`), $2.60 at 10 |
 
