@@ -47,7 +47,7 @@ In the audio path:
 - **C1, C2 (10 µF output coupling)** are in series with the left and right audio going to the sound card. The usual audio-grade choices, film or a bipolar audio electrolytic such as Nichicon Muse ES, do not fit: the two capacitors sit side by side only 2.67 mm apart, on the side facing the sound card. WIMA's 5 mm-pitch MKS2 film capacitors are already 5 mm thick at 1 µF and stop at 4.7 µF. The 16 V and 25 V 10 µF Muse ES parts (5 mm diameter) are obsolete at DigiKey, and the 50 V one is 8 x 13 mm. The BOM uses a TDK FG28 10 µF 25 V ceramic (4.0 x 2.5 x 5.5 mm), which fits. Assuming a wavetable input impedance of 10 kΩ or more, the -3 dB point is about 1.6 Hz. At 50 Hz only about 3 % of the signal voltage appears across the capacitor, and less at higher frequencies, so the ceramic's voltage coefficient adds very little distortion. A film or bipolar-electrolytic coupling capacitor would need a larger footprint at C1/C2 in a future PCB revision.
 - **C3, C4 and R3, R4 (PWM low-pass filter, about 1.6 kHz)**: WIMA MKS2 polyester film capacitors instead of ceramics, and 0.1 % Vishay Dale CMF55 metal film resistors, so both channels' filters match. 100 nF C0G ceramics were considered, but at 3.2-3.5 mm thick they are too wide for the gap between the board edge and the Pi.
 - **Wavetable1**: Würth WR-PHD 61302621821 socket with gold contacts, 8.5 mm tall. Its 3.1 mm tails stay clear of the OLED, which sits directly above them on the other side of the board. Würth rates it for 25 mating cycles, plenty for a board that is plugged in a few times. If you will move it between sound cards often, the Samtec SSW-113-01-G-D with 20 µin gold is the premium alternative.
-- **Audio_Select1 and jumpers**: Sullins PRPC gold-flash header and Harwin M7582-05 gold jumpers, so the audio passes through gold-on-gold contacts. Harwin's own M20 2x3 header is tin-plated, which is why the header is from Sullins. The jumpers are open-top with no handle and 6.00 mm tall, which keeps them short on the side facing the sound card.
+- **Audio_Select1 and jumpers**: Sullins PRPC gold-flash header and Harwin M7582-05 gold jumpers, so the audio passes through gold-on-gold contacts. Harwin's gold M20-9980345 header also fits the jumpers and is listed as an alternate; the Sullins one is cheaper. The jumpers are open-top with no handle and 6.00 mm tall, which keeps them short on the side facing the sound card.
 
 Outside the audio path:
 
@@ -61,9 +61,9 @@ The connectors were Samtec parts in the first version of this BOM. The parts abo
 | Reference | In the BOM | Alternates |
 |---|---|---|
 | Wavetable1 | Würth 61302621821 (`732-61302621821-ND`), gold, $0.93 at 10 | Sullins PPPC132LFBN-RC (`S7116-ND`), gold flash, $1.34 at 10, larger stock; Samtec SSW-113-01-G-D (`612-SSW-113-01-G-D-ND`), 20 µin gold, $3.37 at 10 |
-| Audio_Select1 | Sullins PRPC003DAAN-RC (`35-PRPC003DAAN-RC-ND`), gold flash, $0.10 at 10 | Samtec TSW-103-07-G-D (`612-TSW-103-07-G-D-ND`), 10 µin gold, $0.47 at 10 |
+| Audio_Select1 | Sullins PRPC003DAAN-RC (`35-PRPC003DAAN-RC-ND`), gold flash, $0.10 at 10 | Harwin M20-9980345 (`952-2120-ND`), gold, $0.25 at 10; Samtec TSW-103-07-G-D (`612-TSW-103-07-G-D-ND`), 10 µin gold, $0.47 at 10 |
 | Audio_Select1 jumpers | Harwin M7582-05, black (`952-2881-ND`), $0.13 at 10 | Harwin M7583-05, blue (`952-2882-ND`); Harwin M7581-05, red (`952-2169-ND`); same price |
-| RPi1 header | Sullins PRPC020DAAN-RC (`35-PRPC020DAAN-RC-ND`), $0.81 at 10 | Harwin M20-9982046 (`952-3299-ND`), tin, $1.14 at 10; Samtec TSW-120-07-L-D (`612-TSW-120-07-L-D-ND`), $2.60 at 10 |
+| RPi1 header | Sullins PRPC020DAAN-RC (`35-PRPC020DAAN-RC-ND`), $0.81 at 10 | Harwin M20-9982046 (`952-3299-ND`), tin, $1.14 at 10; Harwin M20-9982045 (`952-3298-ND`), gold, $1.36 at 10; Samtec TSW-120-07-L-D (`612-TSW-120-07-L-D-ND`), $2.60 at 10 |
 
 ## Notes
 
