@@ -54,7 +54,7 @@ In the audio path:
 Outside the audio path:
 
 - **R1, R2**: Vishay Dale CMF55 1 % metal film. They divide the 5 V MIDI signal from the sound card down to about 3.44 V for the Pi's UART.
-- **RPi1 header**: Sullins PRPC020DAAN-RC. It is soldered at both ends with no mating contact, so plating does not matter here. It is a breakaway header, so it snaps into the 2x3 sections the main README recommends.
+- **RPi1 header**: Sullins PRPC020DAAN-RC. It is soldered at both ends with no mating contact, so plating does not matter here. It is a breakaway header, so it snaps into the 2x3 sections the main README recommends. For several boards, the 2x40 version (PRPC040DAAN-RC) is cheaper: break each strip in half for two boards.
 
 ## Connector alternates
 
@@ -65,7 +65,7 @@ The connectors were Samtec parts in the first version of this BOM. The parts abo
 | Wavetable1 | Würth 61302621821 (`732-61302621821-ND`), gold, $0.93 at 10 | Sullins PPPC132LFBN-RC (`S7116-ND`), gold flash, $1.34 at 10, larger stock; Samtec SSW-113-01-G-D (`612-SSW-113-01-G-D-ND`), 20 µin gold, $3.37 at 10 |
 | Audio_Select1 | Sullins PRPC003DAAN-RC (`35-PRPC003DAAN-RC-ND`), gold flash, $0.10 at 10 | Harwin M20-9980345 (`952-2120-ND`), gold, $0.25 at 10; Würth 61300621121 (`732-5295-ND`), gold, $0.46 at 10; Samtec TSW-103-07-G-D (`612-TSW-103-07-G-D-ND`), 10 µin gold, $0.47 at 10 |
 | Audio_Select1 jumpers | Harwin M7582-05, black (`952-2881-ND`), $0.13 at 10 | Harwin M7583-05, blue (`952-2882-ND`); Harwin M7581-05, red (`952-2169-ND`); same price |
-| RPi1 header | Sullins PRPC020DAAN-RC (`35-PRPC020DAAN-RC-ND`), $0.81 at 10 | Harwin M20-9982046 (`952-3299-ND`), tin, $1.14 at 10; Harwin M20-9982045 (`952-3298-ND`), gold, $1.36 at 10; Samtec TSW-120-07-L-D (`612-TSW-120-07-L-D-ND`), $2.60 at 10 |
+| RPi1 header | Sullins PRPC020DAAN-RC (`35-PRPC020DAAN-RC-ND`), $0.81 at 10 | Sullins PRPC040DAAN-RC (`S2011EC-40-ND`), 2x40 strip that covers two boards, $1.17 per strip; Harwin M20-9982046 (`952-3299-ND`), tin, $1.14 at 10; Harwin M20-9982045 (`952-3298-ND`), gold, $1.36 at 10; Samtec TSW-120-07-L-D (`612-TSW-120-07-L-D-ND`), $2.60 at 10 |
 
 ## Notes
 
